@@ -4,9 +4,9 @@
       <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
       <ul>
-      <% order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% order.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :address %>
-    <%= form.text_area :address, id: :order_address, rows: 3, cols: 40%>
+    <%= form.text_area :address, id: :order_address, rows: 3, cols: 40 %>
   </div>
 
   <div class="field">
@@ -26,10 +26,11 @@
     <%= form.text_field :email, id: :order_email, size: 40 %>
   </div>
 
-  <div class="field">
-    <%= form.label :pay_type %>
-    <%= form.select :pay_type, Order.pay_types.keys, id: :order_pay_type, prompt: 'Select Payment Type' %>
-  </div>
+  <!--  <div class="field">-->
+  <%#= form.label :pay_type %>
+  <%#= form.select :pay_type, Order.pay_types.keys, id: :order_pay_type, prompt: 'Select Payment Type' %>
+  <!--  </div>-->
+  <div id="pay-type-component"></div>
 
   <div class="actions">
     <%= form.submit 'Place Order' %>
