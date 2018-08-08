@@ -42,7 +42,7 @@ end
 
 test "should update line_item" do
   patch line_item_url(@line_item),
-        params:{ line_item: { product_id: @line_item.product_id } }
+        params: {line_item: {product_id: @line_item.product_id}}
   assert_redirected_to_line_item_url(@line_item)
 end
 
@@ -52,4 +52,13 @@ test "should destroy line_item" do
   end
 
   assert_redirected_to line_items_url
+end
+
+test "Shoukd create line_item vis ajax" do
+  assert_difference('LineItem.count') do
+    post line_items_url, params: {product_id: products(:ruby).id}, xhr: true
+  end
+
+  assert_response :success
+  assert_match /<tr class=\\"line-item-highlight/, @response.body
 end
