@@ -5,6 +5,6 @@ App.products = App.cable.subscriptions.create "ProductsChannel",
   disconnected: ->
     # Called when the subscription has been terminated by the server
 
-  received: (data) ->
     # Called when there's incoming data on the websocket for this channel
+  received:(data) ->
   document.getElementsByTagName("main")[0].innerHTML = data.html
