@@ -17,7 +17,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    post line_item_url, params: { product_id: products(:ruby).id}
+    post line_item_url, params: {product_id: products(:ruby).id}
 
     get new_order_url
     assert_response :success
@@ -25,10 +25,10 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create order" do
     assert_difference('Order.count') do
-      post orders_url, params: { order: { address: @order.address, email: @order.email, name: @order.name, pay_type: @order.pay_type } }
+      post orders_url, params: {order: {address: @order.address, email: @order.email, name: @order.name, pay_type: @order.pay_type}}
     end
 
-    assert_redirected_to store_index_url
+    assert_redirected_to store_index_url(locale: 'en')
   end
 
   test "should show order" do
@@ -42,7 +42,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update order" do
-    patch order_url(@order), params: { order: { address: @order.address, email: @order.email, name: @order.name, pay_type: @order.pay_type } }
+    patch order_url(@order), params: {order: {address: @order.address, email: @order.email, name: @order.name, pay_type: @order.pay_type}}
     assert_redirected_to order_url(@order)
   end
 

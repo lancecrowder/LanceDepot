@@ -55,3 +55,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Webpacker
 gem 'webpacker', '~> 3.0'
+
+#I18n-JS
+gem 'i18n-js'
